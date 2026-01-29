@@ -1,12 +1,18 @@
-// selection sort function module in C
+#ifndefine SORTING_H
+#define SORTING_H
+
+#include <iomanip>
+/* function prototype*/
+
 
 void display(int a[],int n){
 
     int i;
 
     for(i=0;i<n;i++)
-        printf("%5d",a[i]);
-    printf("\n");
+        std::cout<<setw(3)<<a[i];
+
+	std::cout<<std::endl;
   
 }
 
@@ -26,11 +32,11 @@ void insertion(int a[],int n){
 
 }
 
-void swap(int *a,int *b){
+void swap(int &a,int &b){
  int temp;
-  temp=*a;
-  *a=*b;
-  *b=temp;
+  temp=a;
+  a=b;
+  b=temp;
   
 }
 
@@ -39,12 +45,15 @@ void bubbleSort(int a[],int n){
 int i,j;
 int sorted;
 // how may pair to compare?
-for(j=1;j<=n-1;j++){
- 
+for(j=1;j<n;j++){
+
+
+	
   display(a,n);
  }
   
 }
+#endif
 
 
 
