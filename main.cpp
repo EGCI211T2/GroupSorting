@@ -1,24 +1,28 @@
 #include <iostream>
+#include <cstdlib>
 #include <cstring>
 using namespace std;
 #include "sorting.h"
 
-int main(int argc, char**argv) {
-  int *a,N;
-  /* Make sure you convert 'a' properly*/ 
-  
+int main(int argc, char **argv) {
+    if (argc < 3) {
+        std::cerr << "Usage: ./sort <bubble|selection|insertion> <numbers...>" << std::endl;
+        return 1;
+    }
 
-   display(a,N);
+    int N = argc - 2;
+    int *a = new int[N];
+    for (int i = 0; i < N; i++)
+        a[i] = atoi(argv[i + 2]);
 
-  if(argc>1){
-       if(argv[1] =="bubble") bubbleSort(a,N); 
-       else /* Complete the rest*/
-         //insertion(a,N);
-    
-      // selectionSort(a,N);
-       display(a,N);
-      }
- return 0;
+    if (strcmp(argv[1], "bubble") == 0)
+        bubbleSort(a, N);
+    else if (strcmp(argv[1], "selection") == 0)
+        selectionSort(a, N);
+    else if (strcmp(argv[1], "insertion") == 0)
+        insertion(a, N);
+
+    delete[] a;
+    a = nullptr;
+    return 0;
 }
-
-
