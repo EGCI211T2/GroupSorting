@@ -1,6 +1,6 @@
 
 compile: main.cpp
-	 gcc  main.c -o sort
+		g++ main.cpp -o sort
 
 run: sort
 	 ./sort
